@@ -1,0 +1,20 @@
+- hosts: dev
+  tasks:
+    - name: download java
+      yum: name=java-1.8.0-openjdk state=present
+    - name: download tomcat tarfile
+      ansible.builtin.get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz
+        dest: /root/
+    - name: untar the warfile
+      command: tar -xzf apache-tomcat-9.0.80.tar.gz
+    - name: set username and password for tomcat
+      template:
+        src: tomcat-users.xml
+        dest: /root/apache-tomcat-9.0.80/conf/tomcat-users.xml
+    - name: set username and password for tomcat
+      template:
+        src: context.xml
+        dest: /root/apache-tomcat-9.0.80/webapps/manager/META-INF/context.xml
+    - name: start tomcat
+      command: nohup /root/apache-tomcat-9.0.80/bin/startup.sh

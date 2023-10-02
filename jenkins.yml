@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+     - name: download the repo
+       command: sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+     - name: key
+       command: sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+     - name: install java
+       shell: amazon-linux-extras install java-openjdk11 -y
+     - name: installing jenkins
+       yum: name=jenkins state=present
+     - name: start jenkins service
+       service: name=jenkins state=started

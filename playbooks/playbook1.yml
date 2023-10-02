@@ -1,0 +1,6 @@
+---
+- name: install package
+  hosts: all
+  tasks:
+  - name: install git
+    yum: name=git* state=absent

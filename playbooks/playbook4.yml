@@ -1,0 +1,14 @@
+---
+- name: install package
+  hosts: all
+  vars:
+    a: git
+    b: docker
+    c: tree
+  tasks:
+  - name: install git
+    yum: name={{a}} state=absent
+  - name: install tree
+    yum: name={{b}} state=absent
+  - name: instal maven
+    yum: name={{c}} state=absent

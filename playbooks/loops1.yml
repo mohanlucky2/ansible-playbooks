@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - name: install pkgs
+      yum: name={{item}} state=absent
+      with_items:
+        - git*
+        - maven*
+        - docker*
+        - httpd*
+        - tree*
+

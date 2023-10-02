@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+     - name: installing docker on fedora family
+       yum: name=docker state=present
+       when: ansible_os_family == "RedHat"
+     - name: installing maven on debian family
+       apt: name=maven state=present
+       when: ansible_os_family == "Debian"

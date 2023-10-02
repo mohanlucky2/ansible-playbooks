@@ -1,0 +1,19 @@
+---
+- name: install package
+  hosts: all
+  tasks:
+  - name: install git
+    yum: name=git state=present
+    tags: a
+  - name: install tree
+    yum: name=tree state=present
+    tags: b
+  - name: instal maven
+    yum: name=maven state=present 
+    tags: c
+  - name: installing docker
+    yum: name=docker state=present
+    tags: d
+  - name: install httpd
+    action: yum name=httpd state=present
+    tags: e

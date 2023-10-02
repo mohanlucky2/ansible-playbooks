@@ -1,0 +1,6 @@
+
+- hosts: all
+  tasks:
+    - name: task-1
+      yum: name={{a}} state=present
+      yum: name={{b}} state=present

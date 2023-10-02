@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+    - name: installing git on RedHat
+      yum: name=git state=present
+      when: ansible_os_family == "RedHat"
+    - name: installing git on Debian
+      apt: name=git state=present
+      when: ansible_os_family == "Debian"
+

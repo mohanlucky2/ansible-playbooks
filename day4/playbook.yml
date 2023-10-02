@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: install git
+      command: yum install git -y
+    - name: install docker
+      shell: yum install docker -y
+    - name: install maven
+      raw: yum install maven -y

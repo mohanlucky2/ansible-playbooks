@@ -1,0 +1,5 @@
+- hosts: all
+  become: true
+  tasks:
+    - yum: name={{a}} state=present
+    - yum: name={{b}} state=present

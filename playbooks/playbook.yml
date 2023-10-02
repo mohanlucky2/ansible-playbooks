@@ -1,0 +1,8 @@
+---
+- name: installing packages
+  hosts: all
+  tasks: 
+  - name: task-1
+    yum: name={{a}} state=absent
+  - name: task-2 
+    yum: name={{b}} state=absent

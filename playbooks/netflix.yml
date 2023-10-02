@@ -1,0 +1,13 @@
+- hosts: all
+  tasks: 
+    - name: install httpd
+      yum: name=httpd state=present
+    - name: start service
+      service: name=httpd state=started
+    - name: install git
+      yum: name=git state=present
+    - name: git clone
+      git:
+        repo: "https://github.com/mohanlucky2/ansible-httpd-deployment.git"
+        dest: "/var/www/html"
+

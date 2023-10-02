@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+    - name: installing httpd
+      yum: name=httpd state=present
+    - name: start httpd
+      service: name=httpd state=started
+    - name: copy the index.html to httpd path
+      copy: src=index.html dest=/var/www/html
+
